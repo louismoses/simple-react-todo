@@ -17,6 +17,14 @@ const Card = () => {
     event.preventDefault();
   }
 
+  function deleteItem(id) {
+    setItems((prevItems) => {
+      return prevItems.filter((item, index) => {
+        return index !== id;
+      });
+    });
+  }
+
   return (
     <div className="flex place-content-center min-h-screen m-3">
       <div className="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 ">
@@ -49,9 +57,14 @@ const Card = () => {
         </div>
         <div className="flow-root">
           <ul role="list" className="divide-y divide-gray-200 ">
-            {items.map((todoItem) => {
-              return <TodoItem text={todoItem} />;
-            })}
+            {items.map((todoItem, index) => (
+              <TodoItem
+                key={index}
+                id={index}
+                text={todoItem}
+                onChecked={deleteItem}
+              />
+            ))}
           </ul>
         </div>
       </div>
