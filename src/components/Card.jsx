@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import TodoItem from "./TodoItem";
 
 const Card = () => {
   const [inputText, setInputText] = useState("");
@@ -49,18 +50,7 @@ const Card = () => {
         <div className="flow-root">
           <ul role="list" className="divide-y divide-gray-200 ">
             {items.map((todoItem) => {
-              return (
-                <li className="py-3 sm:py-4" key={todoItem}>
-                  <div className="flex items-center space-x-4">
-                    <div className="flex-shrink-0"></div>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium text-gray-900 truncate ">
-                        {todoItem}
-                      </p>
-                    </div>
-                  </div>
-                </li>
-              );
+              return <TodoItem text={todoItem} />;
             })}
           </ul>
         </div>
