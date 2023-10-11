@@ -5,7 +5,7 @@ const TodoItem = (props) => {
   return (
     <div>
       <li
-        className="py-3 sm:py-4"
+        className="py-3 sm:py-4 cursor-grab"
         onClick={() => {
           props.onChecked(props.id);
         }}
